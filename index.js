@@ -8,7 +8,7 @@ const fs = require("fs");
 const path = require("path");
 const ErrorLogger = require("./errorLogger");
 const corsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: ["http://localhost:5173", "shreygarg.in"],
   // specify the frontend URL
   credentials: true, // allow cookies to be sent with requests
 };

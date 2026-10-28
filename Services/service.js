@@ -17,6 +17,15 @@ service.getAffiliatesData = async () => {
   }
 };
 
+service.getAffiliateByIdData = async (id) => {
+  try {
+    let myData = await model.getAffiliateByIdData(id);
+    return myData;
+  } catch (error) {
+    console.error("Error fetching affiliates data:", error);
+    throw error;
+  }
+};
 service.addAffiliateData = async (affiliateData) => {
   try {
     let dataToSend = new Affiliate(affiliateData);

@@ -29,7 +29,19 @@ router.get("/getAffiliates", async (req, res, next) => {
     next(e);
   }
 });
-
+router.get("/getAffiliateById/:affiliateId", async (req, res, next) => {
+  try {
+    const affiliateId = req.params.affiliateId;
+    const resData = await service.getAffiliateByIdData(affiliateId);
+    console.log("response Data", resData);
+    if (resData.error) {
+      return res.status(400).json({ error: resData.error });
+    }
+    res.json(resData);
+  } catch (e) {
+    next(e);
+  }
+});
 router.post("/addAffiliate", upload.single("image"), async (req, res, next) => {
   try {
     const affiliateData = {

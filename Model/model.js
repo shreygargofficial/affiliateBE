@@ -16,6 +16,13 @@ model.getAffiliatesData = async () => {
   );
 };
 
+model.getAffiliateByIdData = async (id) => {
+  const affiliateSchema = await schema.getAffiliateModel();
+  return await affiliateSchema.findOne(
+    { affiliateId: id },
+    { title: 1, description: 1, image: 1, link: 1, _id: 0, affiliateId: 1 },
+  );
+};
 model.addAffiliateData = async (affiliateData) => {
   const affiliateSchema = await schema.getAffiliateModel();
   return await affiliateSchema.create(affiliateData);

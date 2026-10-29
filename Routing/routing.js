@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const model = require("../Model/model");
 const service = require("../Services/service");
-const upload = require("../Middleware/upload");
+const upload = require("../MiddleWare/upload");
 
 router.get("/", (req, res) => {
   res.send("Hello from the routing module!");

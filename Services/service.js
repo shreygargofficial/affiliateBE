@@ -43,7 +43,9 @@ service.addAffiliateData = async (affiliateData) => {
 
 service.updateAffiliateData = async (affiliateId, updatedData) => {
   try {
-    let myData = new UpdateAffiliate(updatedData);
+    console.log("updatedData", updatedData);
+
+    let myData = new UpdateAffiliate({ ...updatedData, affiliateId });
     let validateStatus = validateUpdateAffiliateData(myData);
     if (!validateStatus.isValid) {
       return { error: validateStatus.message };
